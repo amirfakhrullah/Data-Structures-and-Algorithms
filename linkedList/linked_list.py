@@ -83,3 +83,43 @@ class LinkedList:
         temp = node1.get_next_node()
         node1.set_next_node(node2.get_next_node())
         node2.set_next_node(temp)
+    
+    # two pointers parallel with same speed
+    def nth_last_node(self, n):
+        current = None
+        tail = self.head_node
+        count = 1
+        while tail:
+            tail = tail.get_next_node()
+            count += 1
+            if count >= n + 1:
+                if current == None:
+                    current = self.head_node
+                else:
+                    current = current.get_next_node()
+        return current
+
+
+    # find middle  => use two pointers, one fast which x2 speed than slow
+    def find_middle(self):
+        fast = self.head_node
+        slow = self.head_node
+        while fast:
+            fast = fast.get_next_node()
+            if fast:
+                fast.get_next_node()
+                slow.get_next_node()
+        return slow
+
+    # alternative find middle that uses count variable to check is even
+    def find_middle_alt(self):
+        count = 0
+        fast = self.head_node
+        slow = self.head_node
+        while fast:
+            fast = fast.get_next_node()
+            if count % 2 != 0:
+                slow = slow.get_next_node()
+            count += 1
+        return slow
+                
