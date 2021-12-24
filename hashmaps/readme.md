@@ -20,7 +20,6 @@ Compression function: A function that transforms its inputs into some smaller ra
 - If the key matches the one you're looking for, return the value.
 - If the keys don't match, continue to the next position depending on your collision strategy.
 
-
 ## Resolve Has Collision
 
 - Separate Chaining (LinkedList)
